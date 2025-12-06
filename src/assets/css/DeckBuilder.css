@@ -1,0 +1,25 @@
+/* --- 1. Conteneur Principal (Division Gauche/Droite) --- */
+.deck-editor-layout {
+    display: flex;
+
+    /* 1.3. Réinitialiser les marges et l'arrière-plan sombre comme sur l'image */
+    margin: 0;
+    background-color: #1a1a1a; /* Couleur de fond sombre (presque noir) */
+    color: white;
+
+    gap: 30px; /* Espacement entre les panneaux */
+    padding: 10px;
+    height: 100vh;
+    overflow-x : hidden;
+    overflow-y : auto;
+}
+
+/* --- 2. Panneau de Gauche (Prévisualisation) --- */
+.preview-pane {
+    /* Largeur fixe, comme dans l'image (environ 300px) */
+    flex: 0 0 25%; /* Ne grandit pas, ne rétrécit pas, largeur de base de 350px (à ajuster) */
+}
+
+.list-pane {
+    flex: 40%;
+}

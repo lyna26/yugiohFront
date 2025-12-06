@@ -1,7 +1,9 @@
 import "../assets/css/DeckCollection.css";
 import { useNavigate } from "react-router";
 import axios from "axios";
-export default function DeckCollection ({name, id, onDeckChange}){
+export default function DeckCollection ({deckCollection, onDeckChange}){
+     const { id, name } = deckCollection;
+
     const navigate = useNavigate(); //
 
       // DELETE deck
@@ -42,8 +44,8 @@ export default function DeckCollection ({name, id, onDeckChange}){
       };
 
       const handleEdit = () => {
-        alert(`Éditer le deck ${id}`);
-        navigate(`/deckbuilder/${id}`)
+        alert(`Éditer le deck ${deckCollection.id}`);
+        navigate(`/deckbuilder/${deckCollection.id}`)
       };
 
       return (

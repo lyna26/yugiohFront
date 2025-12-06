@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from "axios";
-export default function CardSearcher(){
+import Card from "./CardSearchResult"
+export default function CardSearcher({onHoverCard}){
     const [cardName, setCardName] = useState("");
     const [cards, setCards] = useState([]);
     const [error, setError] = useState(null);
@@ -34,7 +35,13 @@ export default function CardSearcher(){
               <div>
                   {cards.length > 0 ? (
                       cards.map((cardItem, index) => (
-                          <Card key={index} card={cardItem} />
+                           <div
+                                      key={index}
+                                      onMouseEnter={() =>  onHoverCard(cardItem)}
+                                      onMouseLeave={() =>  onHoverCard(null)}
+                                  >
+                                <Card key={index} card={cardItem} />
+                           </div>
                       ))
                   ) : (
                       cardName.trim() && !error && (

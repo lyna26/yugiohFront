@@ -1,8 +1,10 @@
-export default function Card({card}){
+export default function Deck({card}){
     return(
-        <div>
-            <p> {card.name}</p>
-            <img src = {card.smallCardImage} alt="Dueling Nexus Logo" className="logo" />
+         <div className="cardImage">
+            <img
+                className="picture"
+                src={card.imageUrlSmall}
+            />
         </div>
     );
 }

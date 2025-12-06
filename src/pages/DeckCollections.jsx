@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import DeckCollection from "./DeckCollection";
 
-export default function Decks() {
+export default function DeckCollections() {
   const [deckCollections, setDeckCollections] = useState([]);
   const [newDeckName, setNewDeckName] = useState("");
 
@@ -37,7 +37,7 @@ export default function Decks() {
 
   return (
    <div className = "applicationContainer">
-       <div className="text-center">
+       <div className="text-center">00
             <h1>DECKS</h1>
         </div>
       <div>
@@ -53,10 +53,9 @@ export default function Decks() {
 
           <div className="deck-container">
               <ul className = "deck-list">
-            {deckCollections.map((deck) => (
+            {deckCollections.map((deckCollection) => (
               <DeckCollection
-                name={deck.name}
-                id={deck.id}
+                deckCollection = {deckCollection}
                 onDeckChange={fetchDeckCollections}
               />
             ))}</ul>

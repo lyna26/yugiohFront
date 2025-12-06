@@ -1,0 +1,9 @@
+.containerName {
+    text-align: center;
+    	width: 90%;
+    	line-height: 30px;
+    	background: #1B2029;
+    	margin: 10px 5% 10px 5%;
+    	border: 1px solid #777777;
+    	border-radius: 10px;
+}

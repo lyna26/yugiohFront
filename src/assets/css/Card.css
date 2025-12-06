@@ -1,0 +1,51 @@
+/* Conteneur principal qui active Flexbox */
+.yugioh-card-container {
+    display: flex; /* Active le modèle Flexbox */
+    gap: 20px; /* Ajoute un espacement entre l'image et les détails */
+    padding: 15px;
+    border: 1px solid #ccc; /* Juste pour visualiser le conteneur */
+    background-color: #202020; /* Fond sombre pour coller à l'interface Yu-Gi-Oh! */
+    color: white;
+    border-radius: 8px;
+    /* Optionnel : aligner verticalement les deux blocs au début */
+    align-items: flex-start;
+}
+
+/* Zone 1 : L'image */
+.card-image-wrapper {
+    /* L'image prend une taille fixe ou une fraction de l'espace */
+    flex: 0 0 200px; /* Ne grandit pas (0), ne rétrécit pas (0), largeur de base de 200px */
+    margin: 0; /* Réinitialise la marge par défaut de <figure> */
+}
+
+.card-image {
+    width: 100%; /* L'image remplit la largeur de son conteneur (200px) */
+    height: auto;
+    display: block; /* Supprime l'espace sous l'image */
+}
+
+/* Zone 2 : Les détails */
+.card-details {
+    /* Les détails prennent l'espace restant */
+    flex: 1; /* Permet au bloc de s'étendre et d'occuper tout l'espace disponible */
+    /* On peut aussi utiliser display: flex; et flex-direction: column; ici
+       pour organiser les éléments internes (nom, type, stats) */
+}
+
+.card-name {
+    margin-top: 0;
+}
+3. Alternative : CSS Grid
+CSS Grid est également parfait pour cette tâche et peut être plus intuitif si vous pensez en termes de colonnes.
+
+CSS
+
+.yugioh-card-container {
+    display: grid; /* Active le modèle Grid */
+    /* Définit deux colonnes : 200px pour la première (image) et le reste pour la seconde (détails) */
+    grid-template-columns: 200px 1fr;
+    gap: 20px;
+    padding: 15px;
+    background-color: #202020;
+    color: white;
+}

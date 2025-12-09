@@ -11,6 +11,37 @@ export default function DeckBuilder() {
   const [deckCollection, setDeckCollection] = useState(null);
   const [selectedCard, setSelectedCard] = useState(null);
 
+
+  const handleAddCardToDeck = async (deckId, cardId) => {
+      try{
+      // API pour ajouter la carte dans le deck
+      await axios.post(
+        "http://localhost:8080/deckbuilder/addCard",
+        {deckId: deckId, cardId: cardId },
+        { withCredentials: true }
+      )
+
+        fetchDeckCollections();
+          } catch (err) {
+            alert(err.response?.data?.message || "Erreur lors de l'ajout de la carte");
+          }
+        };
+
+    const handleRemoveCardToDeck = async (deckId, cardId) => {
+          try{
+        // API pour ajouter la carte dans le deck
+        await axios.post(
+          "http://localhost:8080/deckbuilder/removeCard",
+          {deckId: deckId, cardId: cardId },
+          { withCredentials: true }
+        );
+
+        fetchDeckCollections();
+        } catch (err) {
+                      alert(err.response?.data?.message || "Erreur lors de l'ajout de la carte");
+                    }
+    };
+
   useEffect(() => {
     fetchDeckCollections();
   }, [id]);
@@ -44,7 +75,7 @@ export default function DeckBuilder() {
       <div className="deck-list-container col-span-1">
         {decks.map((deck, index) => (
           <div key={index} className="deck-section">
-            <Deck deck={deck} onHoverCard={setSelectedCard} />
+            <Deck deck={deck} onHoverCard={setSelectedCard}  onAddCard = {handleAddCardToDeck} onRemoveCard = {handleRemoveCardToDeck}/>
           </div>
         ))}
       </div>

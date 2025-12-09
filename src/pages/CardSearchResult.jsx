@@ -1,9 +1,16 @@
 import "../assets/css/Card.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons'; // Importez l'icône spécifique
-export default function CardSearchResult({card}){
+export default function CardSearchResult({card, onDrag}){
     return (
-            <div className="yugioh-card-container">
+            <div className="yugioh-card-container"
+                 draggable={true}
+                 onDragStart={(e) => {
+                    e.dataTransfer.setData("card", JSON.stringify(card));
+                    if (onDrag) onDrag(card);
+                }}
+
+            >
                 <figure className="card-image-wrapper">
                     <img
                         src={card.imageUrlSmall}

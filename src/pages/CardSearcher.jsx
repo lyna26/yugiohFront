@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from "axios";
 import Card from "./CardSearchResult"
+
 export default function CardSearcher({onHoverCard}){
     const [cardName, setCardName] = useState("");
     const [cards, setCards] = useState([]);
@@ -40,7 +41,7 @@ export default function CardSearcher({onHoverCard}){
                                       onMouseEnter={() =>  onHoverCard(cardItem)}
                                       onMouseLeave={() =>  onHoverCard(null)}
                                   >
-                                <Card key={index} card={cardItem} />
+                                <Card key={index} card={cardItem}  onDrag={() => console.log("Dragging:", cardItem)}/>
                            </div>
                       ))
                   ) : (
